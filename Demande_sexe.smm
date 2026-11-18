@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Étude sur le Désir Sexuel 🫦</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #ff758c, #ff7eb3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 0.95rem;
+            color: #d1d1d1;
+            margin-bottom: 30px;
+        }
+
+        .step {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .question-title {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+            color: #fff;
+        }
+
+        .emoji-3d {
+            font-size: 2rem;
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus, textarea:focus {
+            border-color: #ff758c;
+        }
+
+        .options-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        label.option-label {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 12px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        label.option-label:hover {
+            background: rgba(255, 117, 140, 0.2);
+            border-color: #ff758c;
+        }
+
+        input[type="radio"], input[type="checkbox"] {
+            accent-color: #ff758c;
+            transform: scale(1.2);
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            height: 50px;
+        }
+
+        button.action-btn {
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 117, 140, 0.4);
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        button.action-btn:hover {
+            transform: scale(1.05);
+        }
+
+        #btn-non {
+            position: absolute;
+            right: 0;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: none;
+            transition: 0.1s ease-out;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff758c, #ff7eb3);
+            width: 14.28%;
+            transition: width 0.4s ease;
+        }
+
+        .success-message {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #ff7eb3;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Étude sur le Désir Sexuel <span class="emoji-3d">🫦</span></h1>
+    <div class="subtitle">Répondez aux questions en toute intimité...</div>
+
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <!-- Formulaire Formspree -->
+    <form id="desireForm" action="https://formspree.io/f/xoedjdpy" method="POST">
+
+        <!-- Question 1 -->
+        <div class="step active" data-step="1">
+            <div class="question-title">1. Mon pénis est de quelle taille ? <span class="emoji-3d">🫦</span></div>
+            <div class="options-group">
+                <label class="option-label"><input type="radio" name="taille_penis" value="Moins de 12 cm" required> Moins de 12 cm</label>
+                <label class="option-label"><input type="radio" name="taille_penis" value="Entre 12 et 15 cm"> Entre 12 et 15 cm</label>
+                <label class="option-label"><input type="radio" name="taille_penis" value="Plus de 15 cm"> Plus de 15 cm</label>
+            </div>
+            <div class="btn-container">
+                <button type="button" class="action-btn" onclick="nextStep()">Suivant ➡️</button>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="step" data-step="2">
+            <div class="question-title">2. Choisis 04 positions sexuelles favorites : <span class="emoji-3d">🌚</span></div>
+            <div class="options-group">
+                <label class="option-label"><input type="checkbox" name="positions" value="Le missionnaire"> Le missionnaire</label>
+                <label class="option-label"><input type="checkbox" name="positions" value="La levrette"> La levrette</label>
+                <label class="option-label"><input type="checkbox" name="positions" value="L'andromaque (cavalière)"> L'andromaque (cavalière)</label>
+                <label class="option-label"><input type="checkbox" name="positions" value="La cuillère"> La cuillère</label>
+                <label class="option-label"><input type="checkbox" name="positions" value="La position debout"> La position debout</label>
+            </div>
+            <div class="btn-container">
+                <button type="button" class="action-btn" onclick="nextStep()">Suivant ➡️</button>
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="step" data-step="3">
+            <div class="question-title">3. Un 6.9 (langue dans la chatte et pénis dans la bouche en même temps) pendant les préliminaires : <span class="emoji-3d">🫦</span></div>
+            <div class="btn-container" style="height: 60px;">
+                <button type="button" class="action-btn" id="btn-oui" onclick="selectAndNext('six_neuf', 'Oui')">Oui 🔥</button>
+                <button type="button" class="action-btn" id="btn-non" onmouseover="moveButton()" onclick="moveButton()">Non ❌</button>
+                <input type="hidden" name="six_neuf" id="input_six_neuf" value="">
+            </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="step" data-step="4">
+            <div class="question-title">4. Seriez-vous prêt(e) à intégrer des accessoires (sex-toys, menottes, bandeaux) ? Citez vos préférés : <span class="emoji-3d">🌚</span></div>
+            <textarea name="accessoires" rows="4" placeholder="Ex: Vibromasseur, menottes en velours, bandeau..." required></textarea>
+            <div class="btn-container">
+                <button type="button" class="action-btn" onclick="nextStep()">Suivant ➡️</button>
+            </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="step" data-step="5">
+            <div class="question-title">5. Aimez-vous l'utilisation de lubrifiants chauds ou froids ? <span class="emoji-3d">😏</span></div>
+            <div class="options-group">
+                <label class="option-label"><input type="radio" name="lubrifiant" value="Chauds" required> Chauds (effet relaxant et stimulant)</label>
+                <label class="option-label"><input type="radio" name="lubrifiant" value="Froids"> Froids (effet frisson et surprenant)</label>
+            </div>
+            <div class="btn-container">
+                <button type="button" class="action-btn" onclick="nextStep()">Suivant ➡️</button>
+            </div>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="step" data-step="6">
+            <div class="question-title">6. Préférez-vous être plutôt dominante, plutôt soumise ou un peu des deux pendant l'acte ? <span class="emoji-3d">😏</span></div>
+            <div class="options-group">
+                <label class="option-label"><input type="radio" name="role_dominant" value="Plutôt dominante / dominant" required> Plutôt dominante / dominant</label>
+                <label class="option-label"><input type="radio" name="role_dominant" value="Plutôt soumise / soumis"> Plutôt soumise / soumis</label>
+                <label class="option-label"><input type="radio" name="role_dominant" value="Un peu des deux (switch)"> Un peu des deux (Switch)</label>
+            </div>
+            <div class="btn-container">
+                <button type="button" class="action-btn" onclick="nextStep()">Suivant ➡️</button>
+            </div>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="step" data-step="7">
+            <div class="question-title">7. Les jeux de rôle (médecin/patient...) ? Avez-vous déjà fantasmé sur le fait d'être filmée (A) ou de regarder une vidéo intime de vous-même (B) ? <span class="emoji-3d">🔥</span></div>
+            <div class="options-group">
+                <label class="option-label"><input type="radio" name="jeux_role_video" value="Jeux de rôle OUI / Option A (Être filmé(e))" required> Jeux de rôle : OUI | Préférence vidéo : (A) Être filmé(e)</label>
+                <label class="option-label"><input type="radio" name="jeux_role_video" value="Jeux de rôle OUI / Option B (Regarder une vidéo de soi)"> Jeux de rôle : OUI | Préférence vidéo : (B) Regarder une vidéo de soi</label>
+                <label class="option-label"><input type="radio" name="jeux_role_video" value="Jeux de rôle NON / Pas intéressé(e) par la vidéo"> Jeux de rôle : NON | Vidéo : Non intéressé(e)</label>
+            </div>
+            <div class="btn-container">
+                <button type="submit" class="action-btn">Envoyer mes réponses 💌</button>
+            </div>
+        </div>
+
+        <!-- Écran de remerciement -->
+        <div class="step" id="thankYouStep">
+            <div class="success-message">
+                <h2>Merci pour votre participation ! ✨</h2>
+                <p>Vos réponses ont bien été transmises de manière sécurisée et confidentielle vers votre boîte mail. 🫦</p>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<script>
+    let currentStep = 1;
+    const totalSteps = 7;
+
+    function updateProgress() {
+        const progressPercent = (currentStep / totalSteps) * 100;
+        document.getElementById('progressFill').style.width = progressPercent + '%';
+    }
+
+    function nextStep() {
+        const activeStepElement = document.querySelector(`.step[data-step="${currentStep}"]`);
+        
+        // Validation simple des champs obligatoires de l'étape active
+        const inputs = activeStepElement.querySelectorAll('input[required], textarea[required]');
+        let valid = true;
+        inputs.forEach(input => {
+            if (input.type === 'radio') {
+                const group = activeStepElement.querySelectorAll(`input[name="${input.name}"]`);
+                let checked = Array.from(group).some(r => r.checked);
+                if (!checked) valid = false;
+            } else if (!input.value.trim()) {
+                valid = false;
+            }
+        });
+
+        if (!valid) {
+            alert('Veuillez s\'il vous plaît répondre à la question avant de continuer.');
+            return;
+        }
+
+        if (currentStep < totalSteps) {
+            activeStepElement.classList.remove('active');
+            currentStep++;
+            document.querySelector(`.step[data-step="${currentStep}"]`).classList.add('active');
+            updateProgress();
+        }
+    }
+
+    function selectAndNext(fieldName, value) {
+        // Crée un champ caché ou stocke la valeur pour formspree
+        let hiddenInput = document.createElement('input');
+        hiddenInput.type = 'hidden';
+        hiddenInput.name = fieldName;
+        hiddenInput.value = value;
+        document.getElementById('desireForm').appendChild(hiddenInput);
+        nextStep();
+    }
+
+    // Effet espiègle pour faire bouger le bouton "Non" de la question 3
+    function moveButton() {
+        const btnNon = document.getElementById('btn-non');
+        const randomX = Math.random() * 150 - 75;
+        const randomY = Math.random() * 80 - 40;
+        btnNon.style.transform = `translate(${randomX}px, ${randomY}px)`;
+    }
+
+    // Gestion de l'envoi AJAX vers Formspree pour afficher un message élégant sans recharger la page
+    const form = document.getElementById('desireForm');
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const data = new FormData(form);
+        
+        try {
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'json'
+                }
+            });
+
+            // Cache toutes les étapes et affiche le remerciement
+            document.querySelectorAll('.step').forEach(el => el.classList.remove('active'));
+            document.getElementById('thankYouStep').classList.add('active');
+            document.getElementById('progressFill').style.width = '100%';
+        } catch (error) {
+            alert('Une erreur est survenue lors de l\'envoi. Veuillez réessayer.');
+        }
+    });
+</script>
+
+</body>
+</html>
